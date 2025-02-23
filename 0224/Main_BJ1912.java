@@ -16,7 +16,7 @@ public class Main_BJ1912 {									//연속합
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
 		int[] arr = new int[n];										//입력값
-		int[] max = new int[n];										//i번째까지 연속된 수를 더했을때의 최댓값
+		int[] max = new int[n];										//i번째까지 연속된 수를 더한 것 중 최댓값 max[i]
 		
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		for(int i = 0; i <n; i++) {
