@@ -29,10 +29,9 @@ def solution(n, info):
                         tmp_result.remove(tmp_result[i])
                         if len(tmp_result) == 1:
                             break
-
+                            
         result = tmp_result[-1]
         
-
     else:
         result = [-1]
     return result
