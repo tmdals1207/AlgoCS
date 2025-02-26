@@ -9,7 +9,6 @@ def check_prime(M, N):
         while i * j <= N:
             arr[i * j] = True
             j += 1
-
     result = []
     for i in range(len(arr)):
         if not arr[i] and i >= M:
