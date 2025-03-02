@@ -19,9 +19,9 @@
 // 9 1 0 0 0 0 0 0 0 0 0
 // 10 0 0 0 0 0 0 0 0 0 0
 
-// 중복조합 유사 문제 - 백준 15652번 [N과 M (4)]
-// 문제 https://www.acmicpc.net/problem/15652
-// 답안 https://www.acmicpc.net/source/83670250
+// 중복조합 유사 문제 - 백준 15652번 "N과 M (4)"
+// 문제링크 https://www.acmicpc.net/problem/15652
+// 답안링크 https://www.acmicpc.net/source/83670250
 
 import java.util.*;
 
