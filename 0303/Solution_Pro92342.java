@@ -7,7 +7,7 @@ package s0303;
  * 어떻게 화살을 쏘든 라이언의 점수가 어피치의 점수보다 낮거나 같으면 [-1]을 return
  */
 
-public class Solution_Pro92342 {					//양궁대회
+public class Solution_Pro92342 {					//양궁 대회
 	class Solution {
 	    static int[] answer;
 	    static int[] apeach;
