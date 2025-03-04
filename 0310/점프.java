@@ -20,7 +20,10 @@ public class Main {
         map = new int[N][];
         visited = new long[N][N];
         for (int i=0; i<N; i++) {
-            Arrays.fill(visited[i], -1);
+            Arrays.fill(visited[i], -1); 
+            // visited를 -1로 초기화하지 않으면 시간초과 or 메모리초과 오류 발생함
+            // 그 이유는 0으로 초기화하면 i행 j열에서 N-1행 N-1열까지의 경로의 개수가 0개인 건지 아니면 애초에 방문하지 않은 칸인 건지 구분할 수 없기 때문에
+            // 이미 dfs를 돌린 결과 경로의 개수가 0개라고 판단된 칸에 대해서도 dfs가 다시 수행될 수 있음
         }
 
         for (int i=0; i<N; i++) {
