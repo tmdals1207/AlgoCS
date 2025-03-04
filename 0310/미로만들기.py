@@ -22,8 +22,8 @@ while queue:
     r, c, cnt = queue.popleft()
 
     if r == n - 1 and c == n - 1:
-        result_arr.append(cnt)
-        continue
+        print(cnt)
+        break
 
     for i in range(4):
         nr = r + dr[i]
@@ -35,5 +35,3 @@ while queue:
                 queue.appendleft((nr, nc, cnt))
             else:
                 queue.append((nr, nc, cnt + 1))
-
-print(min(result_arr))
