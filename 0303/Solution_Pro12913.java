@@ -10,7 +10,7 @@ public class Solution_Pro12913 {									//땅따먹기
 	    int solution(int[][] land) {
 	        int n = land.length;
 
-	        for(int i = 1; i < n; i++){								//n개의 행만큼 반복
+	        for(int i = 1; i < n; i++){								//1행부터 n-1행까지 반복 (0부터 시작 안함)
 	            for(int j = 0; j < 4; j++){							
 	                int max = 0;
 	                for(int k = 0; k <4; k++){
