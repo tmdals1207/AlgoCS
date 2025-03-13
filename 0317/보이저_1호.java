@@ -44,6 +44,7 @@ public class Main {
                 int nn = nowN + dns[nowD]; 
                 int nm = nowM + dms[nowD];
 
+                // 시작지점과 동일한 위치로 돌아오고 방향이 같은 경우 무한 전파로 판단하고 끝
                 if (nn == startN && nm == startM && nowD == startD) {
                     time = INFINITE;
                     break;
