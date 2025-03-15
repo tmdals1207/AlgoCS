@@ -17,7 +17,7 @@ queue = deque()
 
 for d in direction:
     dr, dc = dic[d]
-    queue.append(((PR - 1) + dr ,(PC - 1) + dc, d, 0))
+    queue.append(((PR - 1) + dr ,(PC - 1) + dc, d, 1))
     visited = []
     
     while queue:
@@ -42,7 +42,7 @@ for d in direction:
             queue.append((x + dr, y + dc, drt, time + 1))
 
         else:
-            signal.append((d, time + 1))
+            signal.append((d, time))
 
 max_d = ''
 max_time = 0
