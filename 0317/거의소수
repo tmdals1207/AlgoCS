@@ -1,0 +1,63 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.StringTokenizer;
+
+public class Main {
+	
+	static long A, B;
+	final static int Max = 10000000;
+	static List<Long> primeNumbers; // 소수를 저장할 리스트
+    static boolean[] isPrime; // 소수 판별 배열
+	
+    // 에라토스테네스의 체를 이용하여 10^7 이하의 모든 소수를 찾는 함수
+    // 10^14의 범위 안에서 제곱을 구하는 문제니 10^7까지만 구해야 딱 시간이 맞음.
+	static void sosu() {
+		for (int i = 2; i <= Max; i++) {
+            if (isPrime[i]) { // i가 소수라면
+                primeNumbers.add((long) i); // 소수 리스트에 추가
+                // i의 배수를 모두 소수가 아닌 것으로 처리
+                for (int j = 2 * i; j <= Max; j += i) {
+                    isPrime[j] = false;
+                }
+            }
+        }
+	}
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        A = Long.parseLong(st.nextToken());
+        B = Long.parseLong(st.nextToken());
+        
+        primeNumbers = new ArrayList<>(); // 소수 저장 리스트 초기화
+
+        isPrime = new boolean[Max + 1]; // 소수 판별 배열 초기화
+        Arrays.fill(isPrime, true); // 모든 수를 소수로 가정
+        isPrime[0] = isPrime[1] = false; // 0과 1은 소수가 아님
+        
+        sosu();
+        
+        int count = 0;
+
+        // 소수 리스트를 순회하며 거의 소수를 찾음
+        for (long prime : primeNumbers) {
+            long num = prime * prime; // 소수의 제곱값
+
+            // 소수의 제곱수(num)가 B 이하일 때까지 반복
+            while (num <= B) {
+                if (num >= A) // A 이상 B 이하이면 카운트 증가
+                    count++;
+                if (num > B / prime) // 범위 나가는 것 방지.
+                    break;
+
+                num *= prime; // 현재 값에 prime을 곱하여 다음 거의 소수를 계산
+            }
+        }
+        System.out.println(count);
+	}
+}

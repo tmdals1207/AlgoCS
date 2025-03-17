@@ -1,0 +1,74 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+public class Main {
+	
+	static int N = 0, min = Integer.MAX_VALUE; // 용액 개수와 최소 합 절댓값을 저장할 변수
+    static int[] arr, answer; // 용액 배열과 정답(가장 합이 0에 가까운 두 용액의 인덱스)
+	
+	
+    // 투 포인터를 이용해 가장 합이 0에 가까운 두 용액을 찾는 함수
+	static void liquid() {
+		int left = 0; // 왼쪽 포인터
+        int right = N - 1; // 오른쪽 포인터
+		
+        // 용액이 두개 뿐이라면 바로 정답 리턴.
+		if (N==2) {
+			answer[0] = left;
+			answer[1] = right;
+			return;
+		}
+
+		// 투 포인터 탐색 시작 (왼쪽 포인터가 오른쪽 포인터를 넘어가기 전까지 탐색)
+		while(left<right) {
+			int sum = arr[left] + arr[right]; // 각 포인터가 가리키는 인덱스의 합 계산산
+			
+            // 절댓값이 현재 최소값보다 작다면 갱신
+			if(min > Math.abs(sum)) {
+				min = Math.abs(sum);
+				answer[0] = left;
+				answer[1] = right;
+			}
+
+			// 만약 0이라면 더 이상 탐색할 필요 없음 (최적의 값)
+            if (min == 0) break;
+
+            // 합이 0보다 크다면 오른쪽 포인터를 왼쪽으로 이동
+            if (sum > 0) {
+                right--;
+            } 
+            // 합이 0보다 작다면 왼쪽 포인터를 오른쪽으로 이동
+			else {
+				left++;
+			}
+		}
+		
+	}
+
+	public static void main(String[] args) throws IOException {
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+
+		N = Integer.parseInt(st.nextToken());
+		arr = new int[N];
+		answer = new int[2];
+		
+		st = new StringTokenizer(br.readLine());
+		
+		for (int i = 0; i < N; i++) {
+			arr[i] = Integer.parseInt(st.nextToken());
+		}
+		
+        // 빠른 투 포인터 탐색을 위해 정렬
+		Arrays.sort(arr);
+				
+		liquid();
+		
+		System.out.print(arr[answer[0]] + " " + arr[answer[1]]);
+	}
+
+}
