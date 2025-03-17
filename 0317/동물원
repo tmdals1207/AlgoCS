@@ -1,0 +1,41 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class Main {
+	
+	static int N;
+	static int[][] zoo;
+
+	
+	static void insertLions() {
+		long[] dp = new long[N]; // N의 수에 따른 조합의 수를 저장할 배열.
+		
+		dp[0] = 3; // 왼쪽, 오른쪽, 아무 곳도 넣지 않을 때.
+		
+		if(N==1) {
+			System.out.println(dp[0]);
+			return;
+		}
+		dp[1] = 7; // N이 2일때의 조합의 수.
+		
+        // N이 증가함에 따라 변하는 조합의 수를 dp배열에 저장.
+		for (int i = 2; i < N; i++) {
+			dp[i] = ((dp[i-1] * 2) + dp[i-2])%9901;
+		}
+		
+		System.out.println(dp[N-1]);
+	}
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		N = Integer.parseInt(br.readLine());
+		zoo = new int[N][2];
+		
+		insertLions();
+	}
+
+}
