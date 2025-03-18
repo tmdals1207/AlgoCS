@@ -1,11 +1,6 @@
 import sys
 input = sys.stdin.readline
 
-def checkDp(left, right):
-    if left < right and dp[left][right] == 0:
-        return 0
-    return 1
-
 N = int(input())
 arr = list(map(int, input().split()))
 dp = [[0 for _ in range(N)] for _ in range(N)]
