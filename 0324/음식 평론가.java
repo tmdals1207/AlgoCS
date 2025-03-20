@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+// 소세지를 일렬로 놓았을 때 총 길이가 (소세지 개수 * 평론가 수)라고 가정
 public class Main {
 
     public static void main(String[] args) throws IOException {
