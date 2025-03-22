@@ -5,7 +5,7 @@ while M != 0:
     if N % M == 0:
         break
     elif M % N == 0:
-        t += (M // N - 1) * N
+        t += M - N
         break
     else:
         N %= M
