@@ -5,7 +5,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Main {
+public class 트럭 {
 
 	static int n, w, l;
 	static Queue<Integer> truck; // 트럭들을 저장해둔 큐.

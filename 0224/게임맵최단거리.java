@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-class Solution {
+class 게임맵최단거리 {
     
     // 방향을 전환하는 배열은 변하지 않으니 final 선언.
     final private static int[] dx = {0, 0, 1, -1};

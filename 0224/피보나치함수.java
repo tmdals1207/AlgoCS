@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class Main {
+public class 피보나치함수 {
 
 	static int zero, one;
 	static int[][] dp = new int[41][2]; // 최대 40까지 입력 받기 때문에 41,2 의 2차원 배열 생성.

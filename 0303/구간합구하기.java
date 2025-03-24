@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class Main {
+public class 구간합구하기 {
     
     static int[] cumulative; // 누적 합 배열
     static BufferedWriter bw; // 출력 버퍼

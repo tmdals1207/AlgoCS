@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Main {
+public class 미로찾기 {
 	
 	static int N, M;
 	static int[][] board;

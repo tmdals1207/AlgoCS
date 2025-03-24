@@ -3,8 +3,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Solution {
-	
+public class 방울마술 {
+
 	static char[] cup;
 	static int current;
 
