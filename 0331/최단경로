@@ -9,7 +9,7 @@ arr = [[] for _ in range(V + 1)]
 
 for _ in range(E):
     u, v, w = map(int, input().split())
-    arr[u].append((w, v))
+    arr[u].append((v, w))
 
 visited = [float('INF') for _ in range(V + 1)]
 
@@ -24,9 +24,9 @@ while queue:
         continue
 
     for ele in arr[x]:
-        if total_w + ele[0] < visited[ele[1]]:
-            visited[ele[1]] = total_w + ele[0]
-            heapq.heappush(queue, (total_w + ele[0], ele[1]))
+        if total_w + ele[1] < visited[ele[0]]:
+            visited[ele[0]] = total_w + ele[1]
+            heapq.heappush(queue, (total_w + ele[1], ele[0]))
 
 for i in range(1, len(visited)):
     if visited[i] == float('inf'):
