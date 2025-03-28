@@ -5,7 +5,7 @@ def solution(n, stations, w):
     answer = 0
     queue = deque(stations)
 
-    queue.appendleft(- w)
+    queue.appendleft(-w)
     queue.append(n + w + 1)
 
     for i in range(len(queue) - 1):
