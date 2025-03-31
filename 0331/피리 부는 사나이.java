@@ -21,7 +21,7 @@ public class 피리 부는 사나이 {
 
         if (visited[nx][ny] == 0) { // 방문하지 않은 경우 계속 탐색
             return dfs(nx, ny, group);
-        } else if (visited[nx][ny] == group) { // 같은 그룹 번호를 만난 경우 사이클 형성
+        } else if (visited[nx][ny] == group) { // 같은 그룹 번호를 만난 경우 사이클 형성 
             return true;
         }
 
