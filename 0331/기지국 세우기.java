@@ -17,7 +17,7 @@ class Solution {
         
         // 마지막 기지국 이후 남은 구역이 있을 경우 처리
         if (idx <= n) {
-            int gap = n - idx + 1; // 마지막 기지국 이후의 오른쪽 빈 구역 길이
+            int gap = n - idx + 1; // 마지막 기지국 이후의 오른쪽 빈 구역 길이 
             answer += (gap + range - 1) / range; // 필요한 기지국 개수 추가
         }
 
