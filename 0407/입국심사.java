@@ -28,12 +28,12 @@ public class Main {
         long left = 0L;
         long right = 1_000_000_000L * 1_000_000_000L;
         while (left < right) {
-            long totalTime = (left + right) / 2; // 탐색 중인 총 소요시간
+            long totalTime = (left + right) / 2; // 탐색 중인 총 소요시간(가정)
             long tmpCnt = 0;
-            for (long time : times) {
+            for (long time : times) { // 각 심사대가 총 소요시간 동안 심사할 수 있는 사람의 수 계산
                 long cnt = totalTime / time;
-                tmpCnt += cnt;
-                if (tmpCnt > M) {
+                tmpCnt += cnt; // 사람 수 갱신
+                if (tmpCnt > M) { // tmpCnt의 크기가 long 범위를 넘어갈 수 있으므로 M보다 커지면 바로 break;
                     break;
                 }
             }
