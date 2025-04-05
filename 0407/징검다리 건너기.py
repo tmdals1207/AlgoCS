@@ -23,9 +23,8 @@ else:
             dp[i][1] = dp[0][0] + arr[0][0]
             dp[i][2] = min(dp[0][0] + arr[0][1], dp[0][1] + arr[1][0])
 
-        if N > 2:
-            for i in range(3, N):
-                dp[0][i] = min(dp[0][i - 2] + arr[i - 2][1], dp[0][i - 1] + arr[i - 1][0])
-                dp[1][i] = min(dp[0][i - 3] + K, dp[1][i - 2] + arr[i - 2][1], dp[1][i - 1] + arr[i - 1][0])
+        for i in range(3, N):
+            dp[0][i] = min(dp[0][i - 2] + arr[i - 2][1], dp[0][i - 1] + arr[i - 1][0])
+            dp[1][i] = min(dp[0][i - 3] + K, dp[1][i - 2] + arr[i - 2][1], dp[1][i - 1] + arr[i - 1][0])
 
         print(min(dp[0][-1], dp[1][-1]))
