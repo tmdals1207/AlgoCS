@@ -22,6 +22,7 @@ public class 입국심사 {
             long cnt = 0;
             for (int time : times) {
                 cnt += mid / time;
+                if (cnt >= M) break;
             }
 
             if (cnt >= M) { // 심사 가능한 인원이 충분함 → 시간 줄이기
