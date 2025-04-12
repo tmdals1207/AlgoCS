@@ -9,9 +9,6 @@ def star(x):
     if x == 1:
         return ['*']
 
-    if x == 3:
-        return ['***', '* *', '***']
-
     result = []
     tmp = star(x // 3)
     
