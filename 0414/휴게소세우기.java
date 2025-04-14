@@ -32,7 +32,7 @@ public class 휴게소세우기 {
         PriorityQueue<Section> pq = new PriorityQueue<>();
 
         // 초기에 주어진 구간들을 큐에 저장
-        for (int i = 0; i < positions.size() - 1; i++) {
+        for (int i = 0; i < positions.size() - 1; i++) { // 4개의 구간은 3개의 휴계소로부터 생기니 -1
             int gap = positions.get(i + 1) - positions.get(i);
             pq.offer(new Section(gap));
         }
