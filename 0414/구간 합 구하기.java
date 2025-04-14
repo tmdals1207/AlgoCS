@@ -11,7 +11,7 @@ public class Main {
 
         long tree[];
 
-        SegmentTree(int numsSize) {
+        SegmentTree(int numsSize) { // tree 배열 생성
             int h = (int) Math.ceil(Math.log(numsSize)/ Math.log(2));
 
             int treeSize = (int) Math.pow(2, h + 1);
@@ -19,37 +19,37 @@ public class Main {
         }
 
         long init(long[] nums, int node, int start, int end) {
-            if (start == end) {
+            if (start == end) { // leaf 노드인 경우
                 return tree[node] = nums[start];
             }
 
-            return tree[node] = init(nums, node * 2, start, (start + end) / 2)
+            return tree[node] = init(nums, node * 2, start, (start + end) / 2) // 자식 노드의 합을 현재 노드의 값으로 설정
                 + init(nums, node * 2 + 1, (start + end) / 2 + 1, end);
         }
 
         void update (int node, int start, int end, int changeIdx, long diff) {
-            if (changeIdx < start || end < changeIdx) {
+            if (changeIdx < start || end < changeIdx) { // 현재 노드의 구간 합 범위가 바뀌는 범위를 포함하지 않는 경우 그냥 리턴
                 return;
             }
 
-            tree[node] += diff;
+            tree[node] += diff; // 값 업데이트
 
-            if (start != end) {
+            if (start != end) { // 자식 노드가 있는 경우 자식 노드에 대해서도 update 진행
                 update(node * 2, start, (start + end) / 2, changeIdx, diff);
                 update(node * 2 + 1, (start + end) / 2 + 1, end, changeIdx, diff);
             }
         }
 
         long sum(int node, int start, int end, int wantStart, int wantEnd) {
-            if (wantEnd < start || end < wantStart) {
+            if (wantEnd < start || end < wantStart) { // 구하고자 하는 구간 합 범위가(want) 현재 노드의 구간 합 범위와 겹치는 구간이 없다면 그냥 리턴
                 return 0;
             }
 
-            if (wantStart <= start && end <= wantEnd) {
+            if (wantStart <= start && end <= wantEnd) { // 구하고자 하는 구간 합 범위가(want) 현재 노드의 구간 합 범위에 완전히 포함된다면 현재 노드값 리턴
                 return tree[node];
             }
 
-            return sum(node * 2, start, (start + end) / 2, wantStart, wantEnd)
+            return sum(node * 2, start, (start + end) / 2, wantStart, wantEnd) // 일부만 걸치는 경우 자식 노드에 대해 sum 계산
                 + sum(node * 2 + 1, (start + end) / 2 + 1, end, wantStart, wantEnd);
         }
     }
