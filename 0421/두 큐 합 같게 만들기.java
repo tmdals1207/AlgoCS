@@ -2,7 +2,7 @@ package s0421;
 
 import java.util.*;
 
-public class Solution_Pro118667 {
+public class Solution_Pro118667 {                                        //두 큐 합 같게 만들기
 
     class Solution {
         public int solution(int[] queue1, int[] queue2) {
