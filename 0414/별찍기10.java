@@ -45,7 +45,7 @@ public class 별찍기10 {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 board[i][j] = '*';
-            }
+            }   
         }
 
         // 시작 x좌표 y좌표와 board의 크기, 가운데인지 확인하는 boolean
