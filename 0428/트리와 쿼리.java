@@ -43,10 +43,10 @@ public class Main {
         br.close();
     }
 
-    static int countSubNodes(int node, int pre) {
+    static int countSubNodes(int node, int parent) {
         subNodes[node] = 1; // 자기 자신을 추가
         for (int next : tree.get(node)) { // 자식 노드들 추가
-            if (next == pre) {
+            if (next == parent) { // 부모 노드인 경우 넘김
                 continue;
             }
             subNodes[node] += countSubNodes(next, node);
